@@ -24,3 +24,8 @@ def test_newline_delimeter_sum():
     sc = StringCalculator()
     assert sc.Add("1\n2,3")==6
     assert sc.Add("1\n4")==5
+
+### allowing different delimeters as input
+def test_different_delimeters_sum():
+    sc = StringCalculator()
+    assert sc.Add("//;\n1;2")==3    # here delimeter is ;

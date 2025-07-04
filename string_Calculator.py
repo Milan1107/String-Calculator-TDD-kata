@@ -8,5 +8,13 @@ class StringCalculator:
         if numbers == "":
             return 0
         
-        parts = re.split(r",|\n",numbers)
-        return sum(int(p) for p in parts)
+        delimeter_pattern = r",|\n"
+
+        if numbers.startswith("//"):
+            parts = numbers.split("\n",1)
+            delimeter = parts[0][2]
+            numbers = parts[1]
+            delimeter_pattern = re.escape(delimeter)
+        
+        tocken = re.split(delimeter_pattern,numbers)
+        return sum(int(t) for t in tocken)
