@@ -9,3 +9,7 @@ def test_empty_string_return_zero():
 def test_single_number_return_itself():
     sc = StringCalculator()
     assert sc.Add("1")==1
+
+def test_two_numbers_return_sum():
+    sc = StringCalculator()
+    assert sc.Add("1,2")==3
