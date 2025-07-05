@@ -46,3 +46,9 @@ def test_add_called_count():
     sc.Add("1\n100")
 
     assert sc.GetCalledCount()==2
+
+### number shouldn't be greater than 1000
+def test_number_not_exceed_one_thousand():
+    sc = StringCalculator()
+    assert sc.Add("2,1000")==1002
+    assert sc.Add("2,1001")==2

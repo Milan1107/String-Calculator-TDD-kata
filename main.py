@@ -17,3 +17,5 @@ except ValueError as e:
     print("Exception caught:", e)
 #   printing GetCalledCount()'s value
 print("Called Count for Add() is : ",sc.GetCalledCount())
+#   Number greater than 1000 is avoided
+print("Input \"10,2000\" : ",sc.Add("10,2000"))

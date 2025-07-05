@@ -31,6 +31,8 @@ class StringCalculator:
             num = int(t)
             if num<0:
                 negatives.append(num)
+            elif num>1000:
+                num = 0
             total+=num
 
         if negatives:
