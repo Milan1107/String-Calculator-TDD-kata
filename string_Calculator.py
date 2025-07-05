@@ -20,7 +20,8 @@ class StringCalculator:
             numbers = parts[1]
 
             if delimeter.startswith("[") and delimeter.endswith("]"):
-                delimeters = re.findall(r"\[(.*?)\]", delimeter)  # fixed typo in variable use
+                # ✅ Support multiple delimiters like //[***][%]
+                delimeters = re.findall(r"\[(.*?)\]", delimeter)
                 delimeter_pattern = "|".join(re.escape(d) for d in delimeters)
             else:
                 # Single character delimiter (like //;\n)

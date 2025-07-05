@@ -57,3 +57,9 @@ def test_number_not_exceed_one_thousand():
 def test_any_length_delimeter():
     sc = StringCalculator()
     assert sc.Add("//[***]\n1***2***3")==6
+
+### multiple delimeter 
+def test_multiple_delimiters():
+    sc = StringCalculator()
+    assert sc.Add("//[*][%]\n1*2%3") == 6
+    assert sc.Add("//[**][@@]\n5**5@@5") == 15
