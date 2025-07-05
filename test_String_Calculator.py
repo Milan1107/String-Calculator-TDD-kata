@@ -36,3 +36,13 @@ def test_negative_number_throw_exception():
     sc = StringCalculator()
     with pytest.raises(ValueError,match="negative numbers are not allowed:-5"):
         sc.Add("3,-5,6")
+
+### defining a test case for public int GetCalledCount()
+def test_add_called_count():
+    sc = StringCalculator()
+    assert sc.GetCalledCount()==0
+
+    sc.Add("2,5")
+    sc.Add("1\n100")
+
+    assert sc.GetCalledCount()==2
