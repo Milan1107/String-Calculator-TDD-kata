@@ -1,6 +1,7 @@
-###     This is testStringCalculator.py     ###
+###     This is test_String_Calculator.py     ###
 
 from string_Calculator import StringCalculator
+import pytest
 
 def test_empty_string_return_zero():
     sc = StringCalculator()
@@ -29,3 +30,9 @@ def test_newline_delimeter_sum():
 def test_different_delimeters_sum():
     sc = StringCalculator()
     assert sc.Add("//;\n1;2")==3    # here delimeter is ;
+
+### avoidning single negative number
+def test_negative_number_throw_exception():
+    sc = StringCalculator()
+    with pytest.raises(ValueError,match="negative numbers are not allowed:-5"):
+        sc.Add("3,-5,6")

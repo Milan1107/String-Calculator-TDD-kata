@@ -1,4 +1,4 @@
-###     This is stringCalculator.py     ###
+###     This is string_Calculator.py     ###
 
 #   --- importing re for usage of reguler exp for ','|'\n' 
 import re
@@ -17,4 +17,17 @@ class StringCalculator:
             delimeter_pattern = re.escape(delimeter)
         
         tocken = re.split(delimeter_pattern,numbers)
-        return sum(int(t) for t in tocken)
+
+        total = 0
+        negatives = []
+
+        for t in tocken:
+            num = int(t)
+            if num<0:
+                negatives.append(num)
+            total+=num
+
+        if negatives:
+            raise ValueError(f"negative numbers are not allowed:{','.join(map(str,negatives))}")
+        
+        return total
