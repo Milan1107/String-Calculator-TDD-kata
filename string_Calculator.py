@@ -4,7 +4,13 @@
 import re
 
 class StringCalculator:
+
+    ### defining a constructor for call count
+    def __init__(self):
+        self.call_count = 0
+
     def Add(self,numbers:str)->int:
+        self.call_count += 1
         if numbers == "":
             return 0
         
@@ -31,3 +37,7 @@ class StringCalculator:
             raise ValueError(f"negative numbers are not allowed:{','.join(map(str,negatives))}")
         
         return total
+    
+    ### defining a method GetCalledCount will return count of how many times Add() called
+    def GetCalledCount(self):
+        return self.call_count

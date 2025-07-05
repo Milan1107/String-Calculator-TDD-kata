@@ -10,4 +10,10 @@ print("Input \"6,90\\n100\" : ",sc.Add("6,90\n100"))
 #   different types of delimeter can be used
 print("Input \"//;\\n10;200\" : ",sc.Add("//-\n10-200"))
 #   signle/multiple negative number is handled
-print("Input \"3,-100,-7\" : ",sc.Add("3,-100,-7"))
+
+try:
+    print("Input \"3,-100,-7\" : ", sc.Add("3,-100,-7"))
+except ValueError as e:
+    print("Exception caught:", e)
+#   printing GetCalledCount()'s value
+print("Called Count for Add() is : ",sc.GetCalledCount())
