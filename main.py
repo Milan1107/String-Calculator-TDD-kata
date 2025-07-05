@@ -19,3 +19,5 @@ except ValueError as e:
 print("Called Count for Add() is : ",sc.GetCalledCount())
 #   Number greater than 1000 is avoided
 print("Input \"10,2000\" : ",sc.Add("10,2000"))
+#   Multiple delimeter can be allowed
+print("Input \"//[***]\\n1***2***3\" : ", sc.Add("//[***]\n1***2***3"))

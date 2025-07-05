@@ -52,3 +52,8 @@ def test_number_not_exceed_one_thousand():
     sc = StringCalculator()
     assert sc.Add("2,1000")==1002
     assert sc.Add("2,1001")==2
+
+### delimeter can be of any lenght
+def test_any_length_delimeter():
+    sc = StringCalculator()
+    assert sc.Add("//[***]\n1***2***3")==6

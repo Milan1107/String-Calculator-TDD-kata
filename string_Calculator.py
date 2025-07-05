@@ -1,5 +1,3 @@
-###     This is string_Calculator.py     ###
-
 #   --- importing re for usage of reguler exp for ','|'\n' 
 import re
 
@@ -18,9 +16,15 @@ class StringCalculator:
 
         if numbers.startswith("//"):
             parts = numbers.split("\n",1)
-            delimeter = parts[0][2]
+            delimeter = parts[0][2:]
             numbers = parts[1]
-            delimeter_pattern = re.escape(delimeter)
+
+            if delimeter.startswith("[") and delimeter.endswith("]"):
+                delimeters = re.findall(r"\[(.*?)\]", delimeter)  # fixed typo in variable use
+                delimeter_pattern = "|".join(re.escape(d) for d in delimeters)
+            else:
+                # Single character delimiter (like //;\n)
+                delimeter_pattern = re.escape(delimeter)
         
         tocken = re.split(delimeter_pattern,numbers)
 
@@ -28,6 +32,9 @@ class StringCalculator:
         negatives = []
 
         for t in tocken:
+            t = t.strip()
+            if not t:
+                continue
             num = int(t)
             if num<0:
                 negatives.append(num)
